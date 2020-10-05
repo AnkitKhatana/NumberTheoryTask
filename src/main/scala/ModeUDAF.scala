@@ -4,9 +4,6 @@ import org.apache.spark.sql.types.{DataType, DataTypes, LongType, StringType, St
 
 class ModeUDAF extends UserDefinedAggregateFunction {
 
-  //override def inputSchema: StructType =
-  //StructType(StructField("value", StringType) :: Nil)
-
   override def inputSchema: StructType = new StructType().add("input", StringType)
 
   override def bufferSchema: StructType = new StructType().add("frequencyMap", DataTypes.createMapType(StringType, LongType))
